@@ -1,0 +1,225 @@
+/* General Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the page takes up the full height */
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Change for a cleaner font */
+    background: #f7f7f7; /* Lighter background for better contrast */
+}
+
+header {
+    background: linear-gradient(135deg, #000000, #555555); /* Same as in products.html */
+    padding: 20px 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
+    margin-bottom: 20px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #e0e0e0;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+    text-align: center;
+    flex-grow: 1;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 16px;
+    padding: 12px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+header nav ul li a:hover {
+    background-color: white;
+    color: black;
+}
+
+header nav ul li a.active {
+    background-color: white;
+    color: black;
+}
+
+/* Cart Section */
+.cart {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.cart-header h2 {
+    font-size: 24px;
+    color: #232f3e;
+}
+
+.cart-header .total-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Slightly more space between items */
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.cart-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cart-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-item-info {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.cart-item-info p {
+    font-size: 18px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.cart-item-info .price {
+    font-size: 20px;
+    color: #232f3e;
+    font-weight: bold;
+}
+
+.cart-item-remove {
+    font-size: 18px;
+    color: #ff0000;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Cart Summary */
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary p {
+    font-size: 18px;
+    color: #333;
+}
+
+.cart-summary .checkout-btn {
+    background-color: #232f3e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.cart-summary .checkout-btn:hover {
+    background-color: #555555;
+}
+
+.cart-summary .checkout-btn:active {
+    background-color: #444444;
+}
+.cart-item-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;  /* Space between items */
+}
+
+.cart-item-image {
+    width: 50px;  /* Adjust the image size */
+    height: auto;
+    margin-right: 10px;  /* Space between image and text */
+}
+
+.cart-item-details span {
+    font-size: 16px;
+}
+
+
+/* Footer */
+footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    margin-top: auto;
+}

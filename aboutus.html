@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Rental store</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <style>
+    /* Global Box Sizing */
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: black;
+      color: white;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* Header */
+    header {
+      padding: 20px;
+      background: #111;
+      margin-bottom: 20px; /* Added space between nav bar and content below */
+    }
+    header .logo {
+      font-size: 2em;
+      font-weight: bold;
+      color: white;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    header nav ul li a {
+      text-decoration: none;
+      color: white;
+    }
+    header nav ul li a.active {
+      font-weight: bold;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 25vh;
+      background: url('https://via.placeholder.com/1200x500') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    /* Further reduced hero text sizes */
+    .hero-content h1 {
+      font-size: 3.5vw; /* reduced from 4vw */
+      margin: 0;
+    }
+    .hero-content p {
+      font-size: 1.8vw; /* reduced from 2vw */
+      margin: 5px 0 20px;
+    }
+    
+    /* Stat Boxes (Original Styling) */
+    .stats {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+    .stat-box {
+      background-color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 120px;
+      color: black;
+    }
+    .stat-box h2,
+    .stat-box p {
+      color: black;
+      margin: 0;
+    }
+    .stat-box h2 {
+      font-size: 1.5em;
+    }
+    .stat-box p {
+      font-size: 0.9em;
+    }
+    
+    /* Content Sections with Bordered Container */
+    .content-section {
+      padding: 40px 0; /* space between sections */
+      text-align: center;
+    }
+    /* The bordered container inside each content section */
+    .content-container {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 60px 10%;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .content-container h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .content-container p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .content-container ul {
+      list-style: none;
+      padding: 0;
+    }
+    .content-container ul li {
+      font-size: 1.1em;
+      margin: 10px 0;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">The Rental Store</div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="index.html#shop-categories">Shop</a></li>
+          <li><a href="subscriptions.html">subscriptions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="aboutus.html">About us</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section with Stat Boxes -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome To The Rental Store</h1>
+        <p>one stop solution for all your rental needs</p>
+        <div class="stats">
+          <div class="stat-box">
+            <h2 id="customersCount">0</h2>
+            <p>Customers Served</p>
+          </div>
+          <div class="stat-box">
+            <h2>5</h2>
+            <p>Years of Experience</p>
+          </div>
+          <div class="stat-box">
+            <h2>2,000+</h2>
+            <p>Reviews</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- About The MuscleMart Section -->
+    <section class="content-section">
+      <div class="container content-container">
+        <h2>About The Rental Store</h2>
+        <p>
+          Welcome to <strong>Rent Anything Marketplace</strong> your one-stop shop for renting just about anything you need. 
+          We believe in making life easier, more affordable, and more sustainable by connecting people with items they 
+          need for a short time without the burden of ownership.
+      </p>
+      </div>
+    </section>
+    
+    <!-- Our Mission & Vision Section -->
+    <section class="content-section">
+      <div class="container content-container">
+        <h2>Our Mission & Vision</h2>
+        <p>
+          Our platform is built with innovation and community in mind. Whether it’s tech gadgets, camping gear, 
+          furniture, or jewelry, we bring you a curated selection of items for every occasion. Our mission is to empower 
+          individuals and communities to make smarter and more sustainable choices.
+      </p>
+      </div>
+    </section>
+    
+    <!-- Why Choose Us Section -->
+    <section class="content-section">
+      <div class="container content-container">
+        <h2>Why Rent With Us?</h2>
+        <ul>
+          <li>Wide variety of rental items</li>
+          <li>Affordable pricing with flexible plans</li>
+          <li>Secure transactions and verified renters</li>
+          <li>Eco-friendly and cost-effective renting</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Our Products Section -->
+       <!-- Featured Categories -->
+       <section class="content-section">
+        <div class="container content-container">
+          <h2>Popular Rental Categories</h2>
+          <ul>
+            <li><strong>Electronics</strong> - Laptops, Cameras, Drones</li>
+            <li><strong>Home & Furniture</strong> - Appliances, Sofas, Beds</li>
+            <li><strong>clothing</strong> - Lehenga,Saree,Tuxedo suit,Cosplay Costume,Blazar</li>
+            <li><strong>Outdoor & Travel</strong> - Tents, Camping Gear</li>
+            <li><strong>Jwellary</strong> - Diamond Ring ,Gold Necklace,Ruby Pendent</li>
+          </ul>
+        </div>
+      </section>
+  
+    
+    <!-- Trusted by Thousands Section -->
+    <section class="content-section">
+      <div class="container content-container">
+        <h2>Trusted by Thousands</h2>
+        <p>
+          Join our growing community of satisfied customers <strong>The Rent anything marketplace</strong>.
+        </p>
+      </div>
+    </section>
+    
+   
+  </main>
+  
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Rent Anything. All rights reserved.</p>
+</footer>
+
+  <!-- JavaScript for Counter Animation -->
+  <script>
+    const customersCount = document.getElementById('customersCount');
+    let count = 0;
+    const target = 10000; // Desired number of customers served
+    const increment = Math.ceil(target / 50); // Faster animation by reducing the number of increments
+    const interval = setInterval(() => {
+      count += increment;
+      if (count >= target) {
+        count = target;
+        clearInterval(interval);
+      }
+      customersCount.textContent = count.toLocaleString();
+    }, 25); // Reduced interval time for increased speed
+  </script>
+</body>
+</html>
