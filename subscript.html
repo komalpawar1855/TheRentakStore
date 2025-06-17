@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexible Rental Subscriptions | The Rental Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<style>  /* General Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        text-align: center;
+    }
+    
+    /* Header */
+    header {
+        background: black;
+        padding: 20px 0;
+        color: #fff;
+    }
+    
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+    
+    header .logo {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    
+    /* Subscription Section */
+    #subscription-plans {
+        padding: 50px 20px;
+        background: white;
+        margin: 30px auto;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    
+    .plans {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .plan {
+        background: black;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 280px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .plan h2 {
+        margin-bottom: 10px;
+    }
+    
+    .plan .price {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    
+    .plan ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .plan ul li {
+        margin: 5px 0;
+    }
+    
+    /* Buttons */
+    .btn {
+        background:white;
+        color: black;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    
+    .btn:hover {
+        background: white;
+        color: black;
+    }
+    
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 50%;
+        margin: 15% auto;
+        text-align: center;
+    }
+    
+    .close {
+        float: right;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    </style>
+<header>
+    <div class="container">
+        <div class="logo">The Rental Store</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#shop-categories">Shop</a></li>
+                <li><a href="subscipt.html" class="active">Subscriptions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="aboutus.html">About us</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Subscription Section -->
+<section id="subscription-plans" class="container">
+    <h1>Explore Our Rental Subscription Plans</h1>
+    <p>Choose a plan that suits your needs, whether it's a standard subscription, rent-to-own, or group rental.</p>
+
+    <div class="plans">
+        <!-- Regular Subscription Plans -->
+        <div class="plan">
+            <h2>Premium Membership</h2>
+            <p class="price">₹820/month</p>
+            <ul>
+                <li>Free delivery on rentals</li>
+                <li>10% discount on rental prices</li>
+                <li>Priority approval for rental requests</li>
+            </ul>
+            <button class="btn" onclick="openModal('premium')">View Details</button>
+        </div>
+
+        <div class="plan">
+            <h2>Pro Membership</h2>
+            <p class="price">₹1640/month</p>
+            <ul>
+                <li>20% discount on rentals</li>
+                <li>Priority customer support</li>
+                <li>Early access to new listings</li>
+            </ul>
+            <button class="btn" onclick="openModal('pro')">View Details</button>
+        </div>
+
+        <!-- Rent-to-Own Plan -->
+        <div class="plan">
+            <h2>Rent-to-Own</h2>
+            <p class="price">Custom Pricing</p>
+            <ul>
+                <li>Rent items for a fixed period</li>
+                <li>Option to buy at a discounted rate</li>
+                <li>Applies to furniture, electronics & more</li>
+            </ul>
+            <button class="btn" onclick="openModal('rentToOwn')">View Details</button>
+        </div>
+
+        <!-- Group Rentals -->
+        <div class="plan">
+            <h2>Group Rentals</h2>
+            <p class="price">Starting ₹4100/day</p>
+            <ul>
+                <li>Camping gear for groups</li>
+                <li>Event & party rentals</li>
+                <li>Discounts for bulk rentals</li>
+            </ul>
+            <button class="btn" onclick="openModal('groupRental')">View Details</button>
+        </div>
+    </div>
+</section>
+
+<!-- Subscription Modal -->
+<div id="subscription-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 The Rental Store. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+ function openModal(plan) {
+    let title, description;
+
+    switch (plan) {
+        case 'premium':
+            title = "Premium Membership (₹820/month)";
+            description = "Free delivery, 10% discount, and faster approvals.";
+            break;
+        case 'pro':
+            title = "Pro Membership (₹1640/month)";
+            description = "20% discount, priority support, and early access to listings.";
+            break;
+        case 'rentToOwn':
+            title = "Rent-to-Own";
+            description = "Rent for a fixed period & buy at a discounted price.\n Furniture: Rent for 6 months, purchase at 50% discount.\n Gadgets: Rent for 3 months, purchase with no additional fees."
+
+            break;
+        case 'groupRental':
+            title = "Group Rentals";
+            description = "Camping gear, party supplies, and bulk rentals starting ₹4100/day.";
+            break;
+    }
+
+    document.getElementById("modal-title").innerText = title;
+    document.getElementById("modal-description").innerText = description;
+    document.getElementById("subscription-modal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("subscription-modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>

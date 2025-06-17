@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - The Rental Store</title>
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .notification {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+            width: auto;
+            max-width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+    <div class="container">
+        <div class="logo">The Rental Store</div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html#shop-categories">shop</a></li>
+                <li><a href="subscript.html">subscriptions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="aboutus.html">About us</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+  </header>
+
+<!-- Search Bar -->
+<div class="search-container">
+    <input type="text" id="search-bar" placeholder="Search for products..." onkeyup="searchProducts()">
+    <button type="submit" id="search-btn">Search</button>
+</div>
+
+<!-- Products Section -->
+<section class="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+       
+
+        <div class="product-item" data-name="Gold Necklace">
+            <img src="gold necklace.jpeg" alt="Gold Necklace">
+            <h3> Gold Necklace </h3>
+            <p>₹4100</p>
+            <button class="add-to-cart" onclick="showNotification()">Add to Cart</button>
+        </div>
+
+        <div class="product-item" data-name="Diamond Ring">
+            <img src="ring.jpg" alt="Diamond Ring">
+            <h3> Diamond ring </h3>
+            <p>₹5740</p>
+            <button class="add-to-cart" onclick="showNotification()">Add to Cart</button>
+        </div>
+
+        <div class="product-item" data-name="Silver Bracelet">
+            <img src="bracelate.jpg" alt="Silver Bracelet">
+            <h3> Silver Bracelet </h3>
+            <p>₹4100</p>
+            <button class="add-to-cart" onclick="showNotification()">Add to Cart</button>
+        </div>
+
+        <div class="product-item" data-name="Ruby Pendant">
+            <img src="rubeypendent.jpg" alt="Ruby Pendant">
+            <h3> Ruby Pendant </h3>
+            <p>₹5740</p>
+            <button class="add-to-cart" onclick="showNotification()">Add to Cart</button>
+        </div>
+
+        <div class="product-item" data-name="Platinum Band">
+            <img src="band.jpg" alt="Platinum Band">
+            <h3> Platinum Band </h3>
+            <p>₹4100</p>
+            <button class="add-to-cart" onclick="showNotification()">Add to Cart</button>
+        </div>
+
+        <div class="product-item" data-name="Nath (Nose Ring)">
+            <img src="nath.jpg" alt="Nath (Nose Ring)">
+            <h3> Nath (Nose Ring) </h3>
+            <p>₹3000</p>
+            <button class="add-to-cart" onclick="showNotification()">Add to Cart</button>
+        </div>
+
+        <div class="product-item" data-name="Thushi Necklace">
+            <img src="thushi.jpg" alt="Thushi Necklace">
+            <h3> Thushi Necklace </h3>
+            <p>₹4500</p>
+            <button class="add-to-cart" onclick="showNotification()">Add to Cart</button>
+        </div>
+
+        <div class="product-item" data-name="Pearl Necklace">
+            <img src="pearlnecklace.jpg" alt="Pearl Necklace">
+            <h3> Pearl Necklace </h3>
+            <p>₹4200</p>
+            <button class="add-to-cart" onclick="showNotification()">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Stringer by Layerzz">
+            <img src="corporate_blazer.jpg" alt="Stringer">
+            <h3>Corporate Blazer</h3>
+            <p>₹2500</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Stringer by Layerzz">
+            <img src="tuxedo.jpg" alt="Track Pants">
+            <h3>Tuxedo Suit</h3>
+            <p>₹5000</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Stringer by Layerzz Hoodie">
+            <img src="traditional_sherwani.jpg" alt="Hoodie">
+            <h3>Traditional Sherwani</h3>
+            <p>₹6000</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Stringer by Layerzz Compression Wear">
+            <img src="sports_jersey.jpg" alt="Compression Wear">
+            <h3>Sports jursey</h3>
+            <p>₹1500</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Stringer by Fuaark T-shirt">
+            <img src="wedding_lehenga.jpg" alt="T-shirt">
+            <h3>wedding_lehenga</h3>
+            <p>₹699</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Stringer by Fuaark Dumbbell">
+            <img src="navari_saree.jpg" alt="Dumbbell">
+            <h3></h3>
+            <p>₹1499</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+      
+        <div class="product-item" data-name="Stringer by Fuaark Barbell">
+            <img src="cosplay_costume.jpg" alt="Barbell">
+            <h3>Stringer's by Fuaark</h3>
+            <p>₹2499</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Stringer by Fuaark Protein Supplement">
+            <img src="kids_fancy_dress.jpg" alt="Protein Supplement">
+            <h3>Stringer's by Fuaark</h3>
+            <p>₹1999</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Stringer by Fuaark Protein Supplement">
+            <img src="Kurta.jpg" alt="Protein Supplement">
+            <h3>Stringer's by Fuaark</h3>
+            <p>₹1999</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Layerzz Skull Zip Hoodie">
+            <img src="Evening_gown.jpg" alt="Protein Supplement">
+            <h3>skull zip hoodie by layerzz</h3>
+            <p>₹1999</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Layerzz Thunder Hoodie">
+            <img src=" Cocktail dresses.jpg" alt="Protein Supplement">
+            <h3>Thunder hoodie by layerzz</h3>
+            <p>₹1999</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        
+        <div class="product-item" data-name="Fuaark Brown Zip Hoodie">
+            <img src="Swimwear.jpg" alt="Protein Supplement">
+            <h3>Fuaark's brown zip hoodie</h3>
+            <p>₹1999</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Fuaark White Hoodie">
+            <img src="Winter jackets.jpg" alt="Protein Supplement">
+            <h3>Fuaark's white hoodie</h3>
+            <p>₹1999</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="YOGA WEAR">
+            <img src="YOGA WEAR.jpg" alt="YOGA WEAR">
+            <h3>YOGA WEAR</h3>
+            <p>₹1500</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="GYM WEAR">
+            <img src="GYMWEAR.jpg" alt="GYM WEAR">
+            <h3>GYM WEAR</h3>
+            <p>₹1800</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Tent">
+            <img src="tent.jpg" alt="Tent">
+            <h3>Tent</h3>
+            <p>₹820</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="backpack">
+            <img src="backpack.jpg" alt="backpack">
+            <h3>Hiking Backpack</h3>
+            <p>₹1020</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="hikingboots">
+            <img src="hikingboots.jpg" alt="hikingboots">
+            <h3>Hiking Boots</h3>
+            <p>₹1200</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="latern">
+            <img src="latern.jpg" alt="latern">
+            <h3>Camping Lantern</h3>
+            <p>₹500</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="hydrationpack">
+            <img src="hydrationpack.jpg" alt="hydrationpacke">
+            <h3>Hydration Pack</h3>
+            <p>₹750</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="campingstove">
+            <img src="campingstove.jpg" alt="campingstove">
+            <h3>SCampingStove </h3>
+            <p>₹4100</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="sleepbag">
+            <img src="sleepbag.jpg" alt="sleepbag">
+            <h3>Sleeping Bag </h3>
+            <p>₹700</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="campingchair">
+            <img src="campingchair.jpg" alt="campingchair">
+            <h3>Camping Chair</h3>
+            <p>₹600</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="sofasett">
+            <img src="sofasett.jpg" alt="sofasett">
+            <h3>Sofa Set</h3>
+            <p>₹4100</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="diningtable">
+            <img src="diningtable.jpg" alt="diningtable">
+            <h3>Dining Table</h3>
+            <p>₹3280</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="officechair">
+            <img src="officechair.jpg" alt="officechair">
+            <h3>Office Chai</h3>
+            <p>₹1230</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="bookshelf">
+            <img src="bookshelf.jpg" alt="bookshelf">
+            <h3>Bookshelf</h3>
+            <p>₹1640</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="Bed">
+            <img src="bed.jpg" alt="Bed">
+            <h3>Bed</h3>
+            <p>₹5000</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="wordrob">
+            <img src="wordrob.jpg" alt="wordrob">
+            <h3>Wardrobe</h3>
+            <p>₹3200</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="coffeetable">
+            <img src="coffeetable.jpg" alt="coffeetable">
+            <h3>Coffee Table</h3>
+            <p>₹1500</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="tvstand">
+            <img src="tvstand.jpg" alt="tvstand">
+            <h3>TV Stand</h3>
+            <p>₹2000</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2025 Rent Anything. All rights reserved.</p>
+</footer>
+
+<!-- Notification Element -->
+<div class="notification" id="notification">
+    Thank you! Product added to cart.
+</div>
+
+<!-- JavaScript -->
+<script>
+    function searchProducts() {
+        var input = document.getElementById('search-bar').value.toLowerCase();
+        var productItems = document.querySelectorAll('.product-item');
+
+        productItems.forEach(function (item) {
+            var productName = item.getAttribute('data-name').toLowerCase();
+            if (productName.indexOf(input) > -1) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    function showNotification() {
+        var notification = document.getElementById('notification');
+        notification.style.display = 'block';
+
+        setTimeout(function () {
+            notification.style.display = 'none';
+        }, 3000);
+    }
+
+    // Attach event listeners to all "Add to Cart" buttons
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', showNotification);
+    });
+</script>
+<script src="product.js"></script>
+</body>
+</html>

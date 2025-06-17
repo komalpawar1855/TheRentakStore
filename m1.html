@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - The Rental Store</title>
+    <link rel="stylesheet" href="style1.css">
+  <style>
+    /* Toast Notification Styles */
+    .notification {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        text-align: center;
+        width: auto;
+        max-width: 80%;
+    }
+</style>
+</head>
+<body>
+   
+ <!-- Header Section -->
+ <header>
+    <div class="container">
+      <div class="logo">The Rental Store</div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="index.html#shop-categories">shop</a></li>
+          <li><a href="subscript.html">subscriptions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="aboutus.html">About us</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<!-- Search Bar Below Navigation -->
+<div class="search-container">
+    <input type="text" id="search-bar" placeholder="Search for products..." onkeyup="searchProducts()">
+    <button type="submit" id="search-btn">Search</button>
+</div>
+
+<div class="notification" id="notification">
+   ThankYou! Item added to the cart.
+</div>
+
+<!-- Products Section -->
+<section class="products">
+    <h2>outdoor Gear</h2>
+    <div class="product-grid">
+        <div class="product-item" data-name="Tent">
+            <img src="tent.jpg" alt="Tent">
+            <h3>Tent</h3>
+            <p>₹820</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="backpack">
+            <img src="backpack.jpg" alt="backpack">
+            <h3>Hiking Backpack</h3>
+            <p>₹1020</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="hikingboots">
+            <img src="hikingboots.jpg" alt="hikingboots">
+            <h3>Hiking Boots</h3>
+            <p>₹1200</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="latern">
+            <img src="latern.jpg" alt="latern">
+            <h3>Camping Lantern</h3>
+            <p>₹500</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="hydrationpack">
+            <img src="hydrationpack.jpg" alt="hydrationpacke">
+            <h3>Hydration Pack</h3>
+            <p>₹750</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="campingstove">
+            <img src="campingstove.jpg" alt="campingstove">
+            <h3>SCampingStove </h3>
+            <p>₹4100</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="sleepbag">
+            <img src="sleepbag.jpg" alt="sleepbag">
+            <h3>Sleeping Bag </h3>
+            <p>₹700</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-item" data-name="campingchair">
+            <img src="campingchair.jpg" alt="campingchair">
+            <h3>Camping Chair</h3>
+            <p>₹600</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+<script src="product.js"></script>
+
+</body>
+
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2025 The Rent Anything. All rights reserved.</p>
+</footer>
+<script>
+    function searchProducts() {
+        var input = document.getElementById('search-bar').value.toLowerCase();
+        var productItems = document.querySelectorAll('.product-item');
+
+        productItems.forEach(function (item) {
+            var productName = item.getAttribute('data-name').toLowerCase();
+            if (productName.indexOf(input) > -1) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+var cartButtons = document.querySelectorAll(".add-to-cart");
+
+cartButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        showNotification();
+    });
+});
+});
+    function showNotification() {
+        var notification = document.getElementById('notification');
+        notification.style.display = 'block';
+
+        setTimeout(function () {
+            notification.style.display = 'none';
+        }, 3000);
+    }
+</script>
+</body>
+</html>

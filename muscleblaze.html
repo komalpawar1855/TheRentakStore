@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - The Rental Store</title>
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Add this line -->
+    <style>
+        /* Toast Notification Styles */
+        .notification {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+            width: auto;
+            max-width: 80%;
+        }
+    </style>
+</head>
+<body>
+   
+ <!-- Header Section -->
+ <header>
+    <div class="container">
+      <div class="logo">The Rental Store</div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="index.html#shop-categories">shop</a></li>
+          <li><a href="subscript.html">subscriptions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="aboutus.html">About us</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Search Bar Below Navigation -->
+<div class="search-container">
+    <input type="text" id="search-bar" placeholder="Search for products..." onkeyup="searchProducts()">
+    <button type="submit" id="search-btn">Search</button>
+</div>
+<!-- Notification Element -->
+<div class="notification" id="notification">
+    Thank you! Product added to cart.
+</div>
+
+
+    <!-- Products Section -->
+    <section class="products">
+        <h2>Tech Gear</h2>
+        <div class="product-grid">
+            <!-- Product Items -->
+            <div class="product-item" data-name="dronee">
+                <img src="dronee.PNG" alt="dronee">
+                <h3> Drone </h3>
+                <p> ₹1640  </p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-name="camera">
+                <img src="camera.jpg" alt="camera">
+                <h3>camera</h3>
+                <p> ₹1230 </p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-name="lapitop">
+                <img src="lapitopi.jpg" alt="lapitop">
+                <h3>lapitop </h3>
+                <p> ₹1640 </p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-name="phone">
+                <img src="mics.jpg" alt="phone">
+                <h3>MICS</h3>
+                <p>₹1230</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-name="MB protien peanut butter creamy">
+                <img src="smart_tv.jpg" alt="smart_tv">
+                <h3>Smart TV</h3>
+                <p>₹3000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-name="projector">
+                <img src="projector.jpg" alt="projector">
+                <h3>Projector</h3>
+                <p>₹2500</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-name="gaming_console">
+                <img src="gaming_console.jpg" alt="gaming_consolet">
+                <h3>Gaming Console</h3>
+                <p>₹2000 </p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-name="noise_cancelling_headphones">
+                <img src="noise_cancelling_headphones.jpg" alt="noise_cancelling_headphones">
+                <h3>Noise Cancelling Headphones</h3>
+                <p>₹1500</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    <script src="product.js"></script>
+</body>
+
+   
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 The Rent Anything. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function searchProducts() {
+            var input = document.getElementById('search-bar').value.toLowerCase();
+            var productItems = document.querySelectorAll('.product-item');
+    
+            productItems.forEach(function (item) {
+                var productName = item.getAttribute('data-name').toLowerCase();
+                if (productName.indexOf(input) > -1) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+    var cartButtons = document.querySelectorAll(".add-to-cart");
+    
+    cartButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            showNotification();
+        });
+    });
+    });
+        function showNotification() {
+            var notification = document.getElementById('notification');
+            notification.style.display = 'block';
+    
+            setTimeout(function () {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

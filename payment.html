@@ -1,0 +1,177 @@
+<!-- Checkout Form Markup -->
+<div id="checkoutForm" class="checkout-form">
+    <h2>Enter Delivery Details</h2>
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="text" id="address" placeholder="Delivery Address" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+  
+    <h2>Payment Method</h2>
+    <select id="paymentMethod" onchange="togglePaymentOptions()">
+      <option value="cod">Cash on Delivery (COD)</option>
+      <option value="card">Credit/Debit Card</option>
+      <option value="upi">UPI</option>
+    </select>
+  
+    <!-- UPI Options -->
+    <div id="upiOptions" class="hidden">
+      <select id="upiType">
+        <option value="gpay">Google Pay</option>
+        <option value="phonepe">PhonePe</option>
+        <option value="paytm">Paytm</option>
+      </select>
+    </div>
+  
+    <!-- Card Details -->
+    <div id="cardDetails" class="hidden">
+      <input type="text" id="cardNumber" placeholder="Card Number">
+      <input type="text" id="expiry" placeholder="Expiry Date (MM/YY)">
+      <input type="text" id="cvv" placeholder="CVV">
+    </div>
+  
+    <button class="pay-btn" onclick="processPayment()">Confirm Payment</button>
+    <button class="close-btn" onclick="closeCheckout()">Cancel</button>
+  </div>
+  
+  <!-- Checkout Form CSS -->
+  <style>
+    /* Checkout Form Styling */
+    .checkout-form {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      z-index: 1000;
+      display: none;
+      width: 400px;
+    }
+  
+    .checkout-form input,
+    .checkout-form select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+  
+    .checkout-form .pay-btn {
+      background: #28a745;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+    .checkout-form .close-btn {
+      background: #dc3545;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  
+    .hidden {
+      display: none;
+    }
+  
+    /* UPI Options Styles */
+    #upiOptions {
+      margin-top: 10px;
+      position: relative;
+    }
+  
+    #upiType {
+      width: 100%;
+      padding-left: 40px;
+      position: relative;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+  
+    #upiType::-ms-expand {
+      display: none;
+    }
+  
+    /* Consistent arrow using Font Awesome */
+    #upiOptions:after {
+      content: '\f078';
+      font-family: FontAwesome;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+  
+    /* UPI Option Background Images */
+    #upiType option[value="gpay"] {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Google_Pay_Logo.svg/120px-Google_Pay_Logo.svg.png');
+      background-repeat: no-repeat;
+      background-position: left center;
+      padding-left: 40px;
+    }
+  
+    #upiType option[value="phonepe"] {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/PhonePe_Logo.svg/120px-PhonePe_Logo.svg.png');
+      background-repeat: no-repeat;
+      background-position: left center;
+      padding-left: 40px;
+    }
+  
+    #upiType option[value="paytm"] {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Paytm_logo.png/120px-Paytm_logo.png');
+      background-repeat: no-repeat;
+      background-position: left center;
+      padding-left: 40px;
+    }
+  </style>
+  
+  <!-- Checkout Form JavaScript -->
+  <script>
+    function openCheckout() {
+      document.getElementById('checkoutForm').style.display = 'block';
+    }
+  
+    function closeCheckout() {
+      document.getElementById('checkoutForm').style.display = 'none';
+    }
+  
+    function togglePaymentOptions() {
+      let paymentMethod = document.getElementById('paymentMethod').value;
+      let cardDetails = document.getElementById('cardDetails');
+      let upiOptions = document.getElementById('upiOptions');
+  
+      cardDetails.style.display = paymentMethod === 'card' ? 'block' : 'none';
+      upiOptions.style.display = paymentMethod === 'upi' ? 'block' : 'none';
+    }
+  
+    function processPayment() {
+      let paymentMethod = document.getElementById('paymentMethod').value;
+      let upiType = document.getElementById('upiType').value;
+  
+      if (paymentMethod === "upi") {
+        alert("Payment Successful via UPI (" + upiType + ")!");
+        localStorage.removeItem('cart');
+        loadCart();
+        closeCheckout();
+        return;
+      }
+  
+      alert("Payment Successful! Your order is placed.");
+      localStorage.removeItem('cart');
+      loadCart();
+      closeCheckout();
+    }
+  </script>
+  

@@ -1,0 +1,276 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Cleaner, more modern font */
+    background: linear-gradient(135deg, #000000, #333333); /* Black and grey gradient background */
+}
+
+/* Header Section (Navigation) */
+header {
+    background: linear-gradient(135deg, #000000, #333333); /* Refined gradient with a smoother transition */
+    padding: 20px 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5); /* Darker shadow for a more dramatic effect */
+    position: relative;
+    z-index: 10;
+    margin-bottom: 20px; /* Space between header and content */
+    border-bottom: 3px solid #444444; /* Subtle border at the bottom */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 36px; /* Slightly larger logo */
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #e0e0e0; /* Light gray color for the logo */
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+    text-align: center;
+    flex-grow: 1;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #e0e0e0; /* Lighter gray for navigation links */
+    font-size: 16px;
+    padding: 12px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 6px; /* Slightly rounded corners */
+    display: inline-block;
+    font-weight: 600; /* Increased font weight for stronger text */
+}
+
+header nav ul li a:hover {
+    background-color: white;
+    color: black;
+}
+
+header nav ul li a.active {
+    background-color: #f1f1f1; /* Light gray for active menu item */
+    color: #000;
+}
+
+header nav ul li a:active {
+    transform: scale(0.95);
+    background-color: #333;
+}
+
+header nav ul li a:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Hero Section */
+.hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 120px 20px;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, rgba(255, 223, 0, 0.4), rgba(0, 0, 0, 0.7));
+}
+
+.hero .cta-btn {
+    background: gray;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.hero .cta-btn:hover {
+    background: gray;
+}
+
+/* Categories Section */
+.categories {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.category-item {
+    margin: 20px;
+    text-align: center;
+    width: 200px;
+}
+
+/* Ensuring all category and product images are of equal size */
+.category-item img,
+.product-item img {
+    width: 200px; /* Fixed width */
+    height: 200px; /* Fixed height */
+    object-fit: cover; /* Ensures the image maintains aspect ratio while filling the box */
+    border-radius: 10px;
+}
+
+.category-item p {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Products Section */
+.products {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #000000, #333333);
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.product-item {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.product-item h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.product-item .price {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-item p {
+    font-size: 14px;
+    color: black;
+    margin: 10px 0;
+}
+
+.add-to-cart {
+    background: black;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: gray;
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/* Search Bar Styling */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;  /* Space between the nav bar and the search bar */
+}
+
+#search-bar {
+    padding: 8px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#search-btn {
+    padding: 8px 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    background-color: #555;
+}

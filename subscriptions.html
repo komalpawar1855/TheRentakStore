@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rental Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+        /* General Reset */
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Cleaner, more modern font */
+    background: linear-gradient(135deg, #000000, #333333); /* Black and grey gradient background */
+}
+/* Header Section (Navigation) */
+header {
+    background: linear-gradient(135deg, #000000, #333333); /* Refined gradient with a smoother transition */
+    padding: 20px 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5); /* Darker shadow for a more dramatic effect */
+    position: relative;
+    z-index: 10;
+    margin-bottom: 20px; /* Space between header and content */
+    border-bottom: 3px solid #444444; /* Subtle border at the bottom */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 36px; /* Slightly larger logo */
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #e0e0e0; /* Light gray color for the logo */
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+    text-align: center;
+    flex-grow: 1;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #e0e0e0; /* Lighter gray for navigation links */
+    font-size: 16px;
+    padding: 12px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 6px; /* Slightly rounded corners */
+    display: inline-block;
+    font-weight: 600; /* Increased font weight for stronger text */
+}
+
+header nav ul li a:hover {
+    background-color: white;
+    color: black;
+}
+
+header nav ul li a.active {
+    background-color: #f1f1f1; /* Light gray for active menu item */
+    color: #000;
+}
+
+header nav ul li a:active {
+    transform: scale(0.95);
+    background-color: #333;
+}
+
+header nav ul li a:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+        /* Flexible Rental Options Section Styling */
+#flexible-options {
+    background-color: #f9f9f9;
+    padding: 3rem 1rem;
+}
+
+#flexible-options h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.flex-option {
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    background: #fff;
+}
+
+.flex-option h2 {
+    font-size: 1.8rem;
+    color: #444;
+    margin-bottom: 0.8rem;
+}
+
+.flex-option p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.flex-option .btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+/* Button Style for Flexible Rental Options */
+.flex-option .btn {
+    background-color:black; /* Orange color */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* Hover Effect for Buttons */
+.flex-option .btn:hover {
+    background-color:black; /* Darker orange on hover */
+    transform: scale(1.1); /* Button grows slightly on hover */
+}
+
+/* Optional: Focus effect */
+.flex-option .btn:focus {
+    outline: 3px solid  black; /* Orange outline when focused */
+}
+
+</style>
+<header>
+    <div class="container">
+      <div class="logo">The Rental Store</div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="index.html#shop-categories">shop</a></li>
+          <li><a href="subscript.html">subscriptions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="aboutus.html">About us</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+    <section id="flexible-options" class="py-5">
+        <div class="container text-center">
+            <h1>Flexible Rental Options</h1>
+            <p>Choose from flexible rental plans that suit your needs, offering memberships, rent-to-own options, and group rentals.</p>
+
+            <!-- Subscription Plans -->
+            <div class="flex-option">
+                <h2>Subscription Plans</h2>
+                <p>Sign up for membership plans and enjoy exclusive perks like free delivery and discounts.</p>
+                <button class="btn btn-primary" onclick="showSubscriptionPlans()">View Plans</button>
+            </div>
+
+            <!-- Rent-to-Own -->
+            <div class="flex-option mt-4">
+                <h2>Rent-to-Own</h2>
+                <p>Rent items for a period and decide later if you’d like to purchase them.</p>
+                <button class="btn btn-secondary" onclick="showRentToOwn()">Explore Rent-to-Own</button>
+            </div>
+
+            <!-- Group Rentals -->
+            <div class="flex-option mt-4">
+                <h2>Group Rentals</h2>
+                <p>Rent items for group activities like camping trips, parties, or family events.</p>
+                <button class="btn btn-success" onclick="showGroupRentals()">See Group Options</button>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Show Subscription Plans
+function showSubscriptionPlans() {
+    alert("Subscription Plans:\n1. Basic: ₹820/month - Free delivery\n2. Premium: ₹1640/month - Free delivery & 10% discount\n3. Pro: ₹2460/month - Free delivery, 20% discount, and priority support.");
+}
+
+// Show Rent-to-Own Options
+function showRentToOwn() {
+    alert("Rent-to-Own Options:\n- Furniture: Rent for 6 months, purchase at 50% discount.\n- Gadgets: Rent for 3 months, purchase with no additional fees.");
+}
+
+// Show Group Rentals
+function showGroupRentals() {
+    alert("Group Rental Options:\n- Camping Gear for 4: ₹4100/day\n- Party Supplies for 10: ₹8200/day\n- Family Outdoor Kit(any5): minimum ₹6150/day ");
+    alert("as per the product price varies");
+
+}
+        </script>
+    <script src="product.js"></script>
+    <script src="https://code.tidio.co/xyz123.js"></script>
+    
+    <footer>
+        <p>&copy; 2025 Rent Anything.All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
