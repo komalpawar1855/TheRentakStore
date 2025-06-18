@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rental Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="policies.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Notification Popup */
+    .notification {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        text-align: center;
+        width: auto;
+        max-width: 80%;
+    }
+
+    /* Overlay for the Login/Signup */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    /* Modal Box */
+    .modal {
+      background-color: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      width: 350px;
+      position: relative;
+      text-align: center;
+    }
+
+    /* Close Button */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Input Fields */
+    .modal input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    /* Button */
+    .modal button {
+      width: 100%;
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .modal button:hover {
+      background-color: black;
+    }
+
+    /* Toggle Links */
+    .toggle-link {
+      color: black;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .toggle-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Content - initially with low opacity */
+    #mainContent {
+      opacity: 0.5;
+      transition: opacity 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <!-- Notification Popup -->
+  <div class="notification" id="notification"></div>
+  
+  <!-- Login/Signup Overlay -->
+  <div id="loginOverlay" class="overlay">
+    <div class="modal">
+      <span class="close-btn" onclick="hideOverlay()">&times;</span>
+      
+      <!-- Login Form -->
+      <div id="loginForm">
+        <h2 style="color: black;">Login</h2>
+        <input type="text" id="loginId" placeholder="Enter Email or Phone">
+        <input type="password" id="loginPassword" placeholder="Enter Password">
+        <p><a href="#" class="toggle-link">Forgot Password?</a></p>
+        <button id="loginBtn">Login</button>
+        <p>New to The rental store? <a class="toggle-link" onclick="showSignup()">Create an Account</a></p>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signupForm" style="display: none;">
+        <h2>Signup</h2>
+        <input type="text" id="signupName" placeholder="Full Name">
+        <input type="text" id="signupPhone" placeholder="Phone Number">
+        <input type="text" id="signupId" placeholder="Enter Email or Phone">
+        <input type="password" id="signupPassword" placeholder="Create Password">
+        <input type="password" id="confirmPassword" placeholder="Confirm Password">
+        <button id="signupSubmit">Signup</button>
+        <p>Already have an account? <a class="toggle-link" onclick="showLogin()">Login</a></p>
+      </div>
+
+      <button id="guestBtn" style="background-color: black;">Continue as Guest</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="mainContent">
+    <header>
+      <div class="container">
+          <div class="logo">The Rental Store</div>
+          <nav>
+              <ul>
+                  <li><a href="index.html" class="active">Home</a></li>
+                  <li><a href="index.html#shop-categories">Shop</a></li>
+                  <li><a href="subscript.html">subscriptions</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="aboutus.html">About us</a></li>
+                  <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+              </ul>
+          </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+          <h2>Rent Anything, Anytime!</h2>
+          <p>Browse through thousands of items available for rent at unbeatable prices.</p>
+            <a href="products.html" class="cta-btn">Explore Now</a>
+        </div>
+    </section>
+
+    <section id="shop-categories" class="categories">
+        <h2>Rent by Category</h2>
+        <div class="category-list">
+            <div class="category-item">
+                <a href="cloths.html">
+                    <img src="clothing1.jpg" alt="Clothing">
+                    <p>Clothing</p>
+                </a>
+            </div>
+            <div class="category-item">
+                <a href="muscleblaze.html">
+                    <img src="techgear1.jpg" alt="Supplements">
+                    <p>Tech Gear</p>
+                </a>
+            </div>
+            <div class="category-item">
+                <a href="weight1.html">
+                    <img src="jwellary1.jpg" alt="Weights">
+                    <p>Jwellary</p>
+                </a>
+            </div>
+            <div class="category-item">
+                <a href="m1.html">
+                    <img src="outdoor.jpg" alt="Machines">
+                    <p>Outdoor Gears</p>
+                </a>
+            </div>
+            <div class="category-item">
+                <a href="eq.html">
+                    <img src="furniture1.jpg" alt="Equipment">
+                    <p>Furniture</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 The Rent Anything. All rights reserved.</p>
+        <ul class="footer-links">
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="shipping-policy.html">Shipping Policy</a></li>
+          <li><a href="refund-policy.html">Refund Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms and Conditions</a></li>
+          <li><a href="accessibility-statement.html">Accessibility Statement</a></li>
+  
+  
+      </ul>
+    </footer>
+  </div>
+
+  <script>
+    // Remove the overlay and set full opacity for main content
+    function hideOverlay() {
+      const overlay = document.getElementById('loginOverlay');
+      if (overlay) {
+        overlay.remove();
+      }
+      document.getElementById('mainContent').style.opacity = '1';
+      sessionStorage.setItem('overlayHidden', 'true');
+    }
+
+    // Toggle between login and signup forms
+    function showSignup() {
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('signupForm').style.display = 'block';
+    }
+
+    function showLogin() {
+      document.getElementById('signupForm').style.display = 'none';
+      document.getElementById('loginForm').style.display = 'block';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      if (sessionStorage.getItem('overlayHidden') === 'true') {
+        const overlay = document.getElementById('loginOverlay');
+        if (overlay) {
+          overlay.remove();
+        }
+        document.getElementById('mainContent').style.opacity = '1';
+      } else {
+        document.getElementById('loginOverlay').style.display = 'flex';
+        document.getElementById('mainContent').style.opacity = '0.5';
+      }
+
+      // Attach event listener to guest button
+      document.getElementById('guestBtn').addEventListener('click', hideOverlay);
+    });
+
+    // Function to show single-line popup notification at bottom
+    function showNotification(message) {
+      var notification = document.getElementById('notification');
+      notification.innerHTML = message;
+      notification.style.display = 'block';
+      setTimeout(function () {
+        notification.style.display = 'none';
+      }, 3000);
+    }
+
+    // Signup without a database using localStorage
+    document.getElementById('signupSubmit').addEventListener('click', function() {
+      let name = document.getElementById('signupName').value.trim();
+      let phone = document.getElementById('signupPhone').value.trim();
+      let email = document.getElementById('signupId').value.trim();
+      let password = document.getElementById('signupPassword').value;
+      let confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (!name || !phone || !email || !password || !confirmPassword) {
+        showNotification("Please fill in all fields.");
+        return;
+      }
+      if (password !== confirmPassword) {
+        showNotification("Passwords do not match.");
+        return;
+      }
+      // Check if the email already exists in localStorage
+      if (localStorage.getItem(email)) {
+        showNotification("Email is already signed up. Please log in.");
+        return;
+      }
+      // Save user data in localStorage (for demo purposes only)
+      const user = { name, phone, email, password };
+      localStorage.setItem(email, JSON.stringify(user));
+      showNotification("Signup successful! Please log in.");
+      showLogin();
+    });
+
+    // Login without a database using localStorage, with admin check
+   // Login without a database using localStorage, with admin check
+document.getElementById('loginBtn').addEventListener('click', function() {
+  let email = document.getElementById('loginId').value.trim();
+  let password = document.getElementById('loginPassword').value;
+  
+  // Admin credentials check
+  if(email === "admin@mysite.com" && password === "admin123") {
+    showNotification("Admin Login successful!");
+    console.log("Admin credentials validated, redirecting...");
+    // Allow the notification to display before redirection
+    setTimeout(() => {
+       window.location.replace("admin/admin_dashboard.php");
+    }, 1000);
+    return;
+  }
+  
+  let userData = localStorage.getItem(email);
+  if (!userData) {
+    showNotification("Invalid email or password.");
+    return;
+  }
+  let user = JSON.parse(userData);
+  if (user.password === password) {
+    showNotification("Login successful!");
+    hideOverlay();
+  } else {
+    showNotification("Invalid email or password.");
+  }
+});
+
+  </script>
+</body>
+</html> 
